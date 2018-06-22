@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TGVE_ChuanYeowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="TourName" />
+      <PropertyRef Name="EventMonth" />
+      <PropertyRef Name="EventDay" />
+      <PropertyRef Name="EventYear" />
+    </Key>
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="TourName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="EventMonth" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="EventDay" Type="int" Nullable="false" />
+    <Property Name="EventYear" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Payment" Type="int" Nullable="false" />
+    <Property Name="DateBooked" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="SurName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="GivenName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TourEvents">
+    <Key>
+      <PropertyRef Name="TourName" />
+      <PropertyRef Name="EventMonth" />
+      <PropertyRef Name="EventDay" />
+      <PropertyRef Name="EventYear" />
+    </Key>
+    <Property Name="TourName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="EventMonth" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="EventDay" Type="int" Nullable="false" />
+    <Property Name="EventYear" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Fee" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tours">
+    <Key>
+      <PropertyRef Name="TourName" />
+    </Key>
+    <Property Name="TourName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Descr" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ClientID">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TourName">
+    <End Role="Tours" Type="Self.Tours" Multiplicity="1" />
+    <End Role="TourEvents" Type="Self.TourEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tours">
+        <PropertyRef Name="TourName" />
+      </Principal>
+      <Dependent Role="TourEvents">
+        <PropertyRef Name="TourName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TGVE_ChuanYeowModelStoreContainer">
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TourEvents" EntityType="Self.TourEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tours" EntityType="Self.Tours" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ClientID" Association="Self.FK_ClientID">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TourName" Association="Self.FK_TourName">
+      <End Role="Tours" EntitySet="Tours" />
+      <End Role="TourEvents" EntitySet="TourEvents" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

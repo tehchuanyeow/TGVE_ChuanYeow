@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="TGVE_ChuanYeowEntities-Web.config Connection String" description="TGVE_ChuanYeowEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.TGVE_Model.csdl|res://*/Models.TGVE_Model.ssdl|res://*/Models.TGVE_Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=transactionscy.database.windows.net;initial catalog=TGVE_ChuanYeow;user id=chuanyeow;password=Toytproductions147852369;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\STUDENT\\Desktop\\TGVE_ChuanYeow\\TGVE_WebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TGVE_ChuanYeowEntities']/@connectionString" />
+  </parameter>
+</parameters>

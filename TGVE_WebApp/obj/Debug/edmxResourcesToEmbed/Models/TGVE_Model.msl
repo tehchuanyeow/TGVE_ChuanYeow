@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TGVE_ChuanYeowModelStoreContainer" CdmEntityContainer="TGVE_ChuanYeowEntities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="TGVE_ChuanYeowModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="TourName" ColumnName="TourName" />
+          <ScalarProperty Name="EventMonth" ColumnName="EventMonth" />
+          <ScalarProperty Name="EventDay" ColumnName="EventDay" />
+          <ScalarProperty Name="EventYear" ColumnName="EventYear" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="DateBooked" ColumnName="DateBooked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="TGVE_ChuanYeowModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="SurName" ColumnName="SurName" />
+          <ScalarProperty Name="GivenName" ColumnName="GivenName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TourEvents">
+      <EntityTypeMapping TypeName="TGVE_ChuanYeowModel.TourEvent">
+        <MappingFragment StoreEntitySet="TourEvents">
+          <ScalarProperty Name="TourName" ColumnName="TourName" />
+          <ScalarProperty Name="EventMonth" ColumnName="EventMonth" />
+          <ScalarProperty Name="EventDay" ColumnName="EventDay" />
+          <ScalarProperty Name="EventYear" ColumnName="EventYear" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tours">
+      <EntityTypeMapping TypeName="TGVE_ChuanYeowModel.Tour">
+        <MappingFragment StoreEntitySet="Tours">
+          <ScalarProperty Name="TourName" ColumnName="TourName" />
+          <ScalarProperty Name="Descr" ColumnName="Descr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
